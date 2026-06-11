@@ -24,7 +24,7 @@ export default function SeriesDetail({ id: propId, onAddFavorite }) {
     if (error) return <p className="text-red-500">{error}</p>;
     if (!serie) return null;
 
-    const cast = serie.credits?.cast?.slice(0, 10) || [];
+    const cast = (serie.aggregate_credits?.cast || serie.credits?.cast || []).slice(0, 10);
 
     return (
         <div>
@@ -75,7 +75,9 @@ export default function SeriesDetail({ id: propId, onAddFavorite }) {
                                             />
                                         )}
                                         <p className="font-medium">{actor.name}</p>
-                                        <p className="text-gray-500">{actor.character}</p>
+                                        <p className="text-gray-500">
+                                            {actor.character || actor.roles?.[0]?.character || 'Personnage'}
+                                        </p>
                                     </div>
                                 ))}
                             </div>
