@@ -14,6 +14,9 @@ export function Header({ listItems, logo }) {
                     <Link to="/genres" className="text-sm font-medium hover:text-cyan-500 transition-colors">
                         Genres
                     </Link>
+                    <Link to="/recommandations" className="text-sm font-medium hover:text-cyan-500 transition-colors">
+                        Recommandations
+                    </Link>
                     <Link to="/favoris" className="text-sm font-medium hover:text-cyan-500 transition-colors">
                         ★ Favoris
                     </Link>
