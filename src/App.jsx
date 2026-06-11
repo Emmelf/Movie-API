@@ -1,21 +1,26 @@
-import {Header} from "./components/Header.jsx";
-import {Footer} from "./components/Footer.jsx";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Header } from "./components/Header.jsx";
+import { Footer } from "./components/Footer.jsx";
+import { Home } from "./pages/Home.jsx";
+import { SearchMovies } from "./pages/SearchMovies.jsx";
+import { SearchSeries } from "./pages/SearchSeries.jsx";
 
 function App() {
+    const logo = "https://www.svgrepo.com/show/526328/stream.svg"
 
-    const items = ["Lorem", "Ipsum", "Dolores"];
-
-    const logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Vite_Logo_2026.svg/3840px-Vite_Logo_2026.svg.png"
-
-  return (
-        <div className="flex min-h-svh flex-col">
-            <Header listItems={items} logo={logo} />
-            <main className="flex flex-1 flex-col items-center justify-center bg-gray-50 p-6">
-                <h1 className="text-4xl font-bold">Hello Vite + React!</h1>
-            </main>
-            <Footer />
-        </div>
-  )
+    return (
+        <BrowserRouter>
+            <div className="flex min-h-svh flex-col">
+                <Header logo={logo} />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/search-movies" element={<SearchMovies />} />
+                    <Route path="/search-series" element={<SearchSeries />} />
+                </Routes>
+                <Footer />
+            </div>
+        </BrowserRouter>
+    )
 }
 
 export default App
