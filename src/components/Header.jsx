@@ -11,6 +11,9 @@ export function Header({ listItems, logo }) {
                     </Link>
                 </div>
                 <nav className="flex items-center gap-4">
+                    <Link to="/genres" className="text-sm font-medium hover:text-cyan-500 transition-colors">
+                        Genres
+                    </Link>
                     <Link to="/favoris" className="text-sm font-medium hover:text-cyan-500 transition-colors">
                         ★ Favoris
                     </Link>
